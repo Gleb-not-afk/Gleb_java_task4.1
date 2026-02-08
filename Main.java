@@ -45,17 +45,19 @@ public class Main {
                     spendings += spendingsInput;
                     break;
                 case 3:
-                    if (taxEarningsMinusSpendings(earnings, spendings) > taxEarnings(earnings)){
+                    int tax1 = taxEarningsMinusSpendings(earnings, spendings);
+                    int tax2 = taxEarnings(earnings);
+                    if (tax1 > tax2){
                         System.out.println("Мы советуем вам УСН доходы");
-                        System.out.println("Ваш налог составит: " + taxEarnings(earnings) + " рублей");
-                        System.out.println("Налог в другой системе: " + taxEarningsMinusSpendings(earnings, spendings) + " рублей");
-                        System.out.println("Экономия: " + (taxEarningsMinusSpendings(earnings, spendings) - taxEarnings(earnings)) + " рублей");
+                        System.out.println("Ваш налог составит: " + tax2 + " рублей");
+                        System.out.println("Налог в другой системе: " + tax1 + " рублей");
+                        System.out.println("Экономия: " + (tax1 - tax2) + " рублей");
                     }
-                    else if (taxEarnings(earnings) > taxEarningsMinusSpendings(earnings, spendings)){
+                    else if (tax2 > tax1){
                         System.out.println("Мы советуем вам УСН доходы минус расходы");
-                        System.out.println("Ваш налог составит: " + taxEarningsMinusSpendings(earnings, spendings) + " рублей");
-                        System.out.println("Налог в другой системе: " + taxEarnings(earnings) + " рублей");
-                        System.out.println("Экономия: " + (taxEarnings(earnings) - taxEarningsMinusSpendings(earnings, spendings)) + " рублей");
+                        System.out.println("Ваш налог составит: " + tax1 + " рублей");
+                        System.out.println("Налог в другой системе: " + tax2 + " рублей");
+                        System.out.println("Экономия: " + (tax2 - tax1) + " рублей");
                     }
                     else{
                         System.out.println("Можете выбрать любую систему налогооблажения");
